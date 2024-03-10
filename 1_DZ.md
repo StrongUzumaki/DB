@@ -18,19 +18,28 @@ sudo systemctl status mongod и начинаем упражнения с баз�
 
 6. Используем CRUD команды
 В Mongo 6.0 в отличие от обычного интерфейса mongo следует использовать утилиту mongosh:
+
 ![Alt text](image-5.png)
 
 Импортируем несколько таблиц с помощью mongoimport:
+
 ![Alt text](image-6.png)
 
 CRUD:
 C - Create
+
 ![Alt text](image-7.png)
+
 R - Read
+
 ![Alt text](image-8.png)
+
 U - Update
+
 ![Alt text](image-9.png)
+
 D - Delete
+
 ![Alt text](image-10.png)
 
 7. Перейдем к индексированию
