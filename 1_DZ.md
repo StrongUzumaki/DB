@@ -29,6 +29,7 @@ CRUD:
 C - Create
 
 ![Alt text](image-7.png)
+![Alt text](image-14.png)
 
 R - Read
 
