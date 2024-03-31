@@ -4,3 +4,7 @@
 ![alt text](image-16.png)
 3.Создаем кластера
 ![alt text](image-17.png)
+4. 
+
+5. Добавим json как строку
+![alt text](image-18.png)
