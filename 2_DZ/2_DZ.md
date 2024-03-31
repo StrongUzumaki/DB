@@ -1,10 +1,13 @@
 1. Пропишем docker compose с 3 нодами и 3 репликациями для устойчивости
-![alt text](image-15.png)
+![alt text](image.png)
 2. Запустим их с помощью docker-compose up -d
-![alt text](image-16.png)
+![alt text](image-1.png)
 3.Создаем кластера
-![alt text](image-17.png)
-4. 
-
-5. Добавим json как строку
-![alt text](image-18.png)
+![alt text](image-2.png)
+Теперь подключимся к кластеру в python, также создадим отдельный redis контейнер для сравнения. Напишем бенчмарк на python для замера скорости и там и там.
+4. отдельный redis:
+![alt text](image-3.png)
+5. Бенчмарк:
+![alt text](image-4.png)
+6. Разница в замерах между кластером и отдельным redis инстансом. Видно, что для кластера требуется больше времени, чтобы данные распределились по нодам
+![alt text](image-5.png)
