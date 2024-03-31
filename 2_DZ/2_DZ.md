@@ -1,4 +1,4 @@
-#Настройка Redis CLuster с помощью docker compose и заполнение данными
+# Настройка Redis CLuster с помощью docker compose и заполнение данными
 ## 1. Пропишем docker compose с 3 нодами и 3 репликациями для устойчивости
 ![alt text](image.png)
 ## 2. Запустим их с помощью docker-compose up -d
