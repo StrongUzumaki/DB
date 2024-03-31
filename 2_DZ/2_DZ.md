@@ -1,6 +1,6 @@
-1. Пропишем docker compose с 3 нодами и 3 репликациями для устойчивости
+##1. Пропишем docker compose с 3 нодами и 3 репликациями для устойчивости
 ![alt text](image.png)
-2. Запустим их с помощью docker-compose up -d
+##2. Запустим их с помощью docker-compose up -d
 ![alt text](image-1.png)
 3.Создаем кластера
 ![alt text](image-2.png)
