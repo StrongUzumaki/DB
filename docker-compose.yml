@@ -1,0 +1,97 @@
+version: '3'
+services:
+  redis-master1:
+    image: redis:latest
+    container_name: redis-master1
+    command: redis-server --appendonly yes --cluster-enabled yes --cluster-config-file /usr/local/etc/redis/nodes.conf --cluster-node-timeout 5000
+    ports:
+      - "6379:6379"
+      - "16379:16379"
+    volumes:
+      - redis-master1data:/data
+      - ./redis-conf:/usr/local/etc/redis
+    networks:
+      - redisnet
+
+  redis-master2:
+    image: redis:latest
+    container_name: redis-master2
+    command: redis-server --appendonly yes --cluster-enabled yes --cluster-config-file /usr/local/etc/redis/nodes.conf --cluster-node-timeout 5000
+    ports:
+      - "6380:6379"
+      - "16380:16379"
+    volumes:
+      - redis-master2data:/data
+      - ./redis-master2-conf:/usr/local/etc/redis
+    networks:
+      - redisnet
+
+  redis-master3:
+    image: redis:latest
+    container_name: redis-master3
+    command: redis-server --appendonly yes --cluster-enabled yes --cluster-config-file /usr/local/etc/redis/nodes.conf --cluster-node-timeout 5000
+    ports:
+      - "6381:6379"
+      - "16381:16379"
+    volumes:
+      - redis-master3data:/data
+      - ./redis-master3-conf:/usr/local/etc/redis
+    networks:
+      - redisnet
+
+  redis-replica1:
+    image: redis:latest
+    container_name: redis-replica1
+    command: redis-server --appendonly yes --cluster-enabled yes --cluster-config-file /usr/local/etc/redis/nodes.conf --cluster-node-timeout 5000
+    ports:
+      - "6382:6379"
+      - "16382:16379"
+    volumes:
+      - redis-replica1data:/data
+      - ./redis-rep1-conf:/usr/local/etc/redis
+    networks:
+      - redisnet
+    depends_on:
+      - redis-master1
+
+  redis-replica2:
+    image: redis:latest
+    container_name: redis-replica2
+    command: redis-server --appendonly yes --cluster-enabled yes --cluster-config-file /usr/local/etc/redis/nodes.conf --cluster-node-timeout 5000
+    ports:
+      - "6383:6379"
+      - "16383:16379"
+    volumes:
+      - redis-replica2data:/data
+      - ./redis-rep2-conf:/usr/local/etc/redis
+    networks:
+      - redisnet
+    depends_on:
+      - redis-master2
+
+  redis-replica3:
+    image: redis:latest
+    container_name: redis-replica3
+    command: redis-server --appendonly yes --cluster-enabled yes --cluster-config-file /usr/local/etc/redis/nodes.conf --cluster-node-timeout 5000
+    ports:
+      - "6384:6379"
+      - "16384:16379"
+    volumes:
+      - redis-replica3data:/data
+      - ./redis-rep3-conf:/usr/local/etc/redis
+    networks:
+      - redisnet
+    depends_on:
+      - redis-master3
+
+volumes:
+  redis-master1data:
+  redis-master2data:
+  redis-master3data:
+  redis-replica1data:
+  redis-replica2data:
+  redis-replica3data:
+
+networks:
+  redisnet:
+    driver: bridge
